@@ -1,0 +1,17 @@
+def func901(f0,f1,num):
+    res=[f0,f1]
+    for i in range(num-1):
+        res.append(res[-1]+res[-2])
+    return res[-1]
+def func902(lst,num):
+    bigg=[]
+    small=[]
+    for i in lst:
+        if i>=num:
+            bigg.append(i)
+        else:
+            small.append(i)
+    return bigg+small
+if __name__=="__main__":
+    print(func901(2,1,18))
+    print(func902([3,7,0,8],4))
