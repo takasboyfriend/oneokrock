@@ -4,6 +4,8 @@ def func901(f0,f1,num):
         res.append(res[-1]+res[-2])
     return res[-1]
 def func902(lst,num):
+    if lst==[]:
+        return []
     bigg=[]
     small=[]
     for i in lst:
@@ -12,6 +14,59 @@ def func902(lst,num):
         else:
             small.append(i)
     return bigg+small
+def Half_Prime(i):
+    res=0
+    for j in range(2,i):
+        if i%j==0:
+            res+=1 
+    if res==2:
+        return True
+    return False
+
+def func903(n):
+    x=0
+    for i in range(10,n+1):
+        if Half_Prime(i):
+            x+=i
+    return x 
+def func904(lst):
+    return sorted(lst,key=lambda x:[len(str(abs(x))),abs(x)],reverse=True)
+def func905(lst):
+    return sorted(lst,key=lambda x:[-int(str(abs(x))[0]),x])
+def func906(n):
+    x=1
+    y='0'
+    z=-1
+    for i in range(1,n+1):
+        x*=i
+    while str(x)[z:]==y:
+        y+='0'
+        z-=1
+    return len(y)-1
+def Num_Sum(n):
+    x=0
+    for i in str(n):
+        x+=int(i)
+    return [x,-n]
+def func907(lst):
+    if lst==[]:
+        return []
+    ji=[]
+    ou=[]
+    for i in lst:
+        if i%2==0:
+            ou.append(i)
+        else:
+            ji.append(i)
+    ou.sort(key=Num_Sum)
+    ji.sort(key=Num_Sum)
+    return ji+ou
+def func908()
 if __name__=="__main__":
     print(func901(2,1,18))
     print(func902([3,7,0,8],4))
+    print(func903(30))
+    print(func904([1,111,11,1111]))
+    print(func905([20,984,-8,987,827,477,797,550,509,487,318,353]))
+    print(func906(9))
+    print(func907([627,517,990,26,275,704,148,998,371]))
